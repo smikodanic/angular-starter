@@ -1,0 +1,19 @@
+{
+  "watch": [
+    "./"
+  ],
+  "ignore": [
+    ".git",
+    "node_modules",
+    "src"
+  ],
+  "ext": "js json",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "verbose": false,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "restartable": "rs"
+}

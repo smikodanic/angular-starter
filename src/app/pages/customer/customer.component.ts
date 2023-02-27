@@ -11,7 +11,7 @@ import { HttpClient } from '@angular/common/http';
 export class CustomerComponent implements OnInit {
 
   loggedUser: any;
-  apiResponse: any;
+  msg: string;
 
   constructor(
     private authService: AuthService,
@@ -19,6 +19,7 @@ export class CustomerComponent implements OnInit {
     @Inject('API') private API: any,
   ) {
     this.loggedUser = authService.getLoggedUserInfo();
+    console.log('loggedUser::', this.loggedUser);
   }
 
   ngOnInit() {
@@ -33,15 +34,16 @@ export class CustomerComponent implements OnInit {
 
   testCustomerEndpoint() {
     this.httpClient.get(this.API.CUSTOMER.test)
-      .subscribe(
-        apiRes => {
+      .subscribe({
+        next: (apiRes: any) => {
           console.log(apiRes);
-          this.apiResponse = apiRes;
+          this.msg = apiRes.msg;
         },
-        err => {
+        error: err => {
+          this.msg = err.error.message;
           console.error(err);
         }
-      );
+      });
   }
 
 }

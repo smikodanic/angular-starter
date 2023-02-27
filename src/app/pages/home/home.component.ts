@@ -9,7 +9,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HomeComponent implements OnInit {
 
-  apiResponse: any = {};
+  msg1: string;
+  msg2: string;
 
   constructor(
     private httpClient: HttpClient,
@@ -22,30 +23,32 @@ export class HomeComponent implements OnInit {
 
   testAdminEndpoint() {
     this.httpClient.get(this.API.ADMIN.test)
-      .subscribe(
-        apiRes => {
+      .subscribe({
+        next: (apiRes: any) => {
           console.log(apiRes);
+          this.msg1 = apiRes.msg;
         },
-        err => {
-          this.apiResponse = err;
+        error: err => {
+          this.msg1 = err.error.message;
           console.error(err);
         }
-      );
+      });
   }
 
 
   testCustomerEndpoint() {
     this.httpClient.get(this.API.CUSTOMER.test)
-      .subscribe(
-        apiRes => {
-          this.apiResponse = apiRes;
+      .subscribe({
+        next: (apiRes: any) => {
           console.log(apiRes);
+          this.msg2 = apiRes.msg;
         },
-        err => {
-          this.apiResponse = err;
+        error: err => {
+          this.msg2 = err.error.message;
           console.error(err);
         }
-      );
+      });
   }
+
 
 }

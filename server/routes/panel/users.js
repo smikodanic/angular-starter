@@ -116,7 +116,7 @@ module.exports.loggedinfo = (req, res, next) => {
 module.exports.adminTest = function (req, res, next) {
   res.json({
     success: true,
-    message: 'Admin endpoint works!'
+    msg: 'Admin endpoint works!'
   });
 };
 
@@ -130,6 +130,6 @@ module.exports.adminTest = function (req, res, next) {
 module.exports.customerTest = function (req, res, next) {
   res.json({
     success: true,
-    message: 'Customer endpoint works!'
+    msg: 'Customer endpoint works!'
   });
 };

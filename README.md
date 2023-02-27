@@ -1,56 +1,47 @@
 # ng15-startup
-> Angular 15 project startup with builtin NodeJS web server and API. Quickly build and deploy any ng15+ project.
+> Angular 15 project startup with builtin API server. A boilerplate code to quickly build your new ng15+ project.
+
+
+## Features
+- integrated authentication: login, logout
+- integrated authentication route guards with [ngboost-auth](https://www.npmjs.com/package/ngboost-auth)
+- integrated backend API endpoints
+
 
 ## Installation
 ```bash
-// frontend
+// frontend (open in first terminal)
 $ git clone git@github.com:smikodanic/ng15-startup.git
 $ cd ./ng15-startup
 $ rm -rf .git && git init
 $ npm install
 $ ng serve
 
-// backend
-$ cd ./ng15-plus/server
+// backend API server (open in another terminal)
+$ cd ./ng15-startup/server
 $ npm install
-$ cd ..
-$ export MONGODB_URI="mongodb://ngstartup_user:12345@5.189.161.70:27017/ngstartup-server"
-$ nodemon server  (or just $ node server)
+$ nodmeon
 ```
 
-## Features
-- integrated login
-- integrated API endpoints
-- API routes
-- API error handlers: 404 bad API URL, error sender (console, mongodb, 3rd party), uncaught errors
-- SPA (single page app) routes (Angular Router)
 
+## API Server Environment variables
+The server requires env files: *development.env.js* and *production.env.js* which should be placed in /server/tmp/envs/ folder.
+[Contact me](http://www.mikosoft.info) if you want to get env files with prepared MongoDB password and user collection.
+```javascript
+module.exports = {
+  api_name: 'API - development',
+  port: 4444,
+  jwt_secret: 'babaDoo', // any string
+  pwd_salt: '99dcdf9f3ae0dbb4144f32ec806bb73', // 32 chars length
+  mongodb: 'mongodb://ng_user:12345@contact-me'
+};
 
-## Server Environment variables
-- $ export NODE_ENV=development | production    (default env is development)
-- $ export MONGODB_URI="mongodb://ng5plus_user:yyyyy@5.189.161.70:27017/ng5plus-server"   (enter mongodb URI)
-- $ export NODE_RIND=true    (rebuild mongodb indexes)
+```
 
 
 ## API Endpoints
-Basic API endpoints for user registration and login. See file /server/app/routes/_api.js
-```bash
-- GET / (API Info)
-- POST /users/register {first_name: , last_name: , username: , password: , role: 'admin | customer'}
-- POST /users/login {credentials admin:test123 OR customer:test123}
-- GET /users/loggedinfo (get logged user info)
-- GET /admin/test  (test admin role)
-- GET /customer/test  (test customer role)
-```
-
-## API Test Users
-- username: 'admin' , password: 'test123' , role: 'admin'
-- username: 'customer' , password: 'test123' , role: 'customer'
+The API endpoints for user registration, login and test. See file /server/routes/panel/index.js
 
 
 ## Licence
 Created by [Saša Mikodanić](http://www.mikosoft.info) under MIT licence.
-
-
-## Contact
-Contact for mongodb://ng5plus_user:yyyyy@5.189.161.70:27017/ng5plus-server MongoDB password [www.mikosoft.info](http://www.mikosoft.info) in oreder API to work properly.

@@ -213,17 +213,18 @@ export class LoginComponent implements OnInit {
 
   login() {
     const creds = this.loginFG.value; // {username: , password: }
-
     this.authService.login(creds)
-      .subscribe((loggedUser: any) => {
-        const jwtToken = this.authService.getJWTtoken();
-        console.info('LOGGED USER:: ', loggedUser, ' jwtToken=', jwtToken);
-      }, (err) => {
-        this.err = err.error;
-        setTimeout(() => {
-          this.err = null;
-        }, 2100);
-        console.error('ERROR: ', err);
+      .subscribe({
+        next: (apiResp: any) => {
+          const jwtToken = this.authService.getJWTtoken();
+          console.info('LOGGED USER:: ', apiResp.loggedUser, ' jwtToken=', jwtToken);
+          this.msg = apiResp.msg;
+        },
+        error: err => {
+          this.errMsg = err.error.message;
+          setTimeout(() => { this.errMsg = ''; }, 2100);
+          console.error('ERROR: ', err);
+        }
       });
   }
 

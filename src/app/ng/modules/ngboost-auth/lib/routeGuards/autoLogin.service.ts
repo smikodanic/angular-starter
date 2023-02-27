@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 
@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
  * This guard service apply only on /login route.
  */
 @Injectable()
-export class AutologinService implements CanActivate {
+export class AutologinService {
 
   constructor(
     private authService: AuthService,
@@ -35,3 +35,4 @@ export class AutologinService implements CanActivate {
 
 
 }
+

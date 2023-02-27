@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 
@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
  * Check if user is logged.
  */
 @Injectable()
-export class IsLoggedService implements CanActivate {
+export class IsLoggedService {
 
   constructor(
     private authService: AuthService,

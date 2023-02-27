@@ -1,6 +1,6 @@
-import {throwError,  Observable } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 
-import {catchError, tap} from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -43,7 +43,7 @@ export interface LoggedUser {
 export class AuthService {
 
   public jwtToken: string;
-  private loggedUser: LoggedUser|null;
+  private loggedUser: LoggedUser | null;
   private cookieOpts: any;
 
   constructor(
@@ -70,10 +70,8 @@ export class AuthService {
    * @return Observable
    */
   login(creds: Credentials): Observable<any> {
-    console.log(this.auth_urls);
     return this.http.post(this.auth_urls.apiLoginUrl, creds).pipe(
       tap((apiResp: any) => {
-        console.log(apiResp);
 
         /* set cookie 'auth_jwtToken': 'JWT xyz...' */
         if (!!apiResp && !!apiResp.jwtToken) {

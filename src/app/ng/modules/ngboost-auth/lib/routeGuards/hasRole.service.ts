@@ -1,5 +1,5 @@
 import { Injectable, Inject } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 
@@ -7,7 +7,7 @@ import { AuthService } from '../auth.service';
  * Check if user has required role: admin, customer. If not redirect to /login page.
  */
 @Injectable()
-export class HasRoleService implements CanActivate {
+export class HasRoleService {
 
   constructor(
     private authService: AuthService,

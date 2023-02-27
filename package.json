@@ -2,6 +2,7 @@
   "name": "ng15-startup",
   "version": "0.0.0",
   "scripts": {
+    "inst": "rm -rf node_modules && rm package-lock.json && npm install",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -18,7 +19,7 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
-    "ngboost-auth": "file:../../my-npms/ngboost/dist/ngboost-auth",
+    "ngboost-auth": "^1.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.12.0"

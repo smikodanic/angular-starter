@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
-import { AuthService } from '../../ng/modules/ngboost-auth';
+import { AuthService } from 'ngboost-auth';
 
 
 @Component({

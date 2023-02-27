@@ -14,7 +14,7 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { NavComponent } from './shared/components/app-nav/nav.component';
 
 /* SERVICES */
-import { IsLoggedService, HasRoleService, AutologinService } from './ng/modules/ngboost-auth';
+import { IsLoggedService, HasRoleService, AutologinService } from 'ngboost-auth';
 
 
 const routes: Routes = [

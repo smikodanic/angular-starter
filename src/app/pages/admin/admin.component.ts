@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { AuthService } from '../../ng/modules/ngboost-auth';
+import { AuthService } from 'ngboost-auth';
 import { HttpClient } from '@angular/common/http';
 
 

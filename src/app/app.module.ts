@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 // custom modules
 import { AppRoutingModule } from './app-routing.module';
-import { NgboostAuthModule, JwtTokenInterceptor } from './ng/modules/ngboost-auth';
+import { NgboostAuthModule, JwtTokenInterceptor } from 'ngboost-auth';
 
 
 /* COMPONENTS */
@@ -41,7 +41,7 @@ import API from './ng/constants/API.constant';
 
     // constants
     { provide: 'ENV', useValue: environment },
-    { provide: 'API', useValue: API},
+    { provide: 'API', useValue: API },
 
     // required for ngboost-auth
     { provide: 'AUTH_URLS', useValue: AUTH_URLS }, // send AUTH_URLS to ngboost-auth
